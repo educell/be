@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
             .string('name', 250)
             .notNullable()
         table
-            .string('notes', 1200)
+            .text('notes', 1200)
         table
             .integer('admin_id')
             .unsigned()
