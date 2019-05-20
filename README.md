@@ -1,10 +1,10 @@
-#EDU CELL API
+# EDU CELL API
 
 
-#API URL:
+# API URL:
 https://edu-cell.herokuapp.com
 
-#AUTH ROUTES
+# AUTH ROUTES
 
 * Register a User:
 
