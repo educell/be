@@ -10,21 +10,6 @@ exports.up = function(knex) {
       users
         .string('password', 150)
         .notNullable();
-    //    users
-    //     .string('firstName', 150)
-    //     .notNullable()
-    //   users
-    //     .string('lastName', 150)
-    //     .notNullable()
-    //   users
-    //     .string('email', 250)
-    //     .notNullable()
-    //   users
-    //     .string('school', 250)
-    //     .notNullable()
-    //    users
-    //     .integer('phoneNumber')
-    //     .unique()
     });
 };
   
