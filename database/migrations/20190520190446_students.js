@@ -6,18 +6,37 @@ exports.up = function(knex, Promise) {
                 .increments()
             table
                 .string('name', 250)
-                .integer('age')
                 .notNullable()
             table
-                .integer('grade').notNullable()
-                .text('backgroundStory', 1200).notNullable()
+                .integer('age')
+                .unsigned()
+                .notNullable()
+            table
+                .integer('grade')
+                .notNullable()
+                .unsigned()
+            table
+                .text('backgroundStory', 1200)
+                .notNullable()
+            table
                 .string('status', 250)
-                .boolean('insuraceCard').notNullable()
+                .notNullable()
+            table
+                .boolean('insuraceCard')
+                .notNullable()
+            table
                 .string('insuranceExpiration', 50)
-                .boolean('birthCertificate').notNullable()
+            table
+                .boolean('birthCertificate')
+                .notNullable()
+            table
                 .string('specialNeeds', 1200)
-                .string('representative', 250).notNullable()
-                .text('contactInfo', 1200).notNullable()
+            table
+                .string('representative', 250)
+                .notNullable()
+            table
+                .text('contactInfo', 1200)
+                .notNullable()
         })
 };
 

@@ -21,6 +21,6 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.scema 
+  return knex.schema 
     .dropTableIfExists('teachers')
 };

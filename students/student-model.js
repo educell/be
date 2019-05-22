@@ -10,15 +10,15 @@ module.exports = {
 };
 
 function find() {
-  return db('students').select('name', 'age', 'grade', 'status' );
+  return db('students');
 };
 
 function findBy(filter) {
   return db('students').where(filter);
 };
 
-async function add(user) {
-  const [id] = await db('students').insert(user);
+async function add(student) {
+  const [id] = await db('students').insert(student);
 
   return findById(id);
 };
