@@ -1,7 +1,8 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('students').del()
+  return knex('students')
+    .truncate()
     .then(function () {
       // Inserts seed entries
       return knex('students').insert([
@@ -14,7 +15,8 @@ exports.seed = function(knex, Promise) {
          insuranceCard: true, 
          insuranceExpiration: 0422, 
          birthCertificate: true, 
-         representative: 'Ms. Trainor'
+         representative: 'Ms. Trainor',
+         contactInfo: "Grandma Storey: 1(234)567-8910"
         },
 
         {id: 2, 
@@ -26,7 +28,8 @@ exports.seed = function(knex, Promise) {
         insuranceCard: true, 
         insuranceExpiration: 1024, 
         birthCertificate: true, 
-        representative: 'Mr. McGee'
+        representative: 'Mr. McGee',
+        contactInfo: "Mrs. Waller: 1(234)567-8910 (Mother) "
       },
 
         {id: 3,        
@@ -37,7 +40,8 @@ exports.seed = function(knex, Promise) {
         status:'student', 
         insuranceCard: false, 
         birthCertificate: true, 
-        representative: 'Mr. Charlton'
+        representative: 'Mr. Charlton',
+        contactInfo: "Josh Dunn: 1(234)567-8910 (Brother) "
       },
 
         {id: 4,        
@@ -49,7 +53,8 @@ exports.seed = function(knex, Promise) {
         insuranceCard: true,
         insuranceExpiration: 0721, 
         birthCertificate: true, 
-        representative: 'Mrs. Cotton'
+        representative: 'Mrs. Cotton',
+        contactInfo: "Ms. Gardener: 1(234)567-8910 (Mother) "
       },
       ]);
     });

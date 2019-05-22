@@ -10,12 +10,12 @@ exports.up = function(knex) {
       users
         .string('password', 150)
         .notNullable();
-       users
-        .string('firstName', 150)
-        .notNullable()
-      users
-        .string('lastName', 150)
-        .notNullable()
+    //    users
+    //     .string('firstName', 150)
+    //     .notNullable()
+    //   users
+    //     .string('lastName', 150)
+    //     .notNullable()
     //   users
     //     .string('email', 250)
     //     .notNullable()
