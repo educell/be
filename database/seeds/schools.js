@@ -6,9 +6,16 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('school').insert([
-        {name: 'Beach Street Middle School'},
-        {name: 'Franklin Academy'},
-        {name: 'Paul j. Bellew'}
+        {name: 'Clearwater Kindergarten'},
+        {name: 'Willow Park Secondary School'},
+        {name: 'Savanna Middle School'},
+        {name:'Pacific Grove Charter School'},
+        {name:'Whale Gulch Secondary School'},
+        {name:'Grand Mountain Middle School'},
+        {name:'Eastside Elementary'},
+        {name:'Deer Valley Middle School'},
+        {name:'Granite Bay University'},
+        {name:'Copper Cove School for Boys'},
       ]);
     });
 };
