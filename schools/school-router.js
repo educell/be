@@ -24,4 +24,16 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const schoolInfo = req.body;
+
+    db.add(schoolInfo)
+        .then(school => {
+            res.status(201).json(school)
+        })
+        .catch(err => {
+            res.status(500).json({ message: "Could not add school" })
+        })
+})
+
 module.exports = router;

@@ -25,7 +25,6 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log('hello')
     const studentInfo = req.body;
 
     !req.body.name
