@@ -25,21 +25,33 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const { name, age, grade, backgroundStory, insuranceCard, birthCertificate, representative,contactInfo } = req.body;
+    const studentInfo = req.body;
 
-    !name
-    , !age, !grade, !backgroundStory, !insuranceCard, !birthCertificate, !representative, !contactInfo
-    ?
-        res.status(400).json({ errorMessage: "Please provide  a name for this student." })
-    :
-        db.add(studentInfo)
-        .then(stu => {
-            res.status(201).json(stu);
+    db.add(studentInfo)
+        .then(student => {
+            res.status(201).json(student)
         })
-        .catch( err => {
-            res.status(500)({ error: "There was an error while saving this student to the database." })
-    })
+        .catch(err => {
+            res.status(500).json({ message: "Could not add student." })
+        })
 })
+
+// router.post('/', (req, res) => {
+//     const { name, age, grade, backgroundStory, insuranceCard, birthCertificate, representative,contactInfo } = req.body;
+
+//     !name
+//     , !age, !grade, !backgroundStory, !insuranceCard, !birthCertificate, !representative, !contactInfo
+//     ?
+//         res.status(400).json({ errorMessage: "Please provide  a name for this student." })
+//     :
+//         db.add(studentInfo)
+//         .then(stu => {
+//             res.status(201).json(stu);
+//         })
+//         .catch( err => {
+//             res.status(500)({ error: "There was an error while saving this student to the database." })
+//     })
+// })
 
 
 module.exports = router;

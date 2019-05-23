@@ -113,3 +113,10 @@ HTTP method: [GET]
 
 Method Url: https://edu-cell.herokuapp.com/students/:id
 HTTP method: [GET]
+
+* Add a Student
+
+Method Url: https://edu-cell.herokuapp.com/students
+HTTP method: [POST]
+    * Requires a name, age, grade, backgroundStory, status, insuranceCard(boolean), insuranceExpiration, birthCertificate, representative, contactInfo, worker_id, and teacher_id
+    * insuranceExpiration, specialNeeds are optional

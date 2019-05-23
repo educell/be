@@ -16,13 +16,13 @@ exports.up = function(knex, Promise) {
                 .notNullable()
                 .unsigned()
             table
-                .text('backgroundStory', 1200)
+                .text('backgroundStory', 1200) //maybe change to string
                 .notNullable()
             table
                 .string('status', 250)
                 .notNullable()
             table
-                .boolean('insuraceCard')
+                .boolean('insuranceCard')
                 .notNullable()
             table
                 .string('insuranceExpiration', 50)
