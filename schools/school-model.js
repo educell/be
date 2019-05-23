@@ -4,6 +4,7 @@ module.exports = {
     find,
     findById,
     add,
+    getAdmins
 }
 
 function find() {
@@ -22,4 +23,11 @@ function add(school) {
       .then(([id]) => {
         return findById(id);
     });
+}
+
+function getAdmins(schoolId) {
+    return db('admin as a')
+        .join('school as s', 's.id', 'a.school_id')
+        .select('a.id', 'a.name', 'school.name')
+        .where('a.school_id', schoolId)
 }
