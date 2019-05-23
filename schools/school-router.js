@@ -68,5 +68,25 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id
+    const changes = req.body
+    db.update(id, changes)
+    .then(id => {
+        if (id === 0) {
+            res.status(404).json({ message: "A school with the specified ID does not exist." }) 
+        } 
+        db
+            .findById(id)
+            .then(changes => {
+                res.status(200).json(changes)
+            })
+            
+    })
+    .catch(err => {
+        res.status(500).json({ error: "This schools's information could not be modified." })
+    })
+})
+
 
 module.exports = router;

@@ -47,6 +47,10 @@ HTTP method: [GET]
 Method Url: https://edu-cell.herokuapp.com/schools/:id
 HTTP method: [DELETE]
 
+* Update a School
+
+Method Url: https://edu-cell.herokuapp.com/schools/:id
+HTTP method: [PUT]
 
 
 # ADMIN ROUTES
@@ -131,3 +135,8 @@ HTTP method: [POST]
 
 Method Url: https://edu-cell.herokuapp.com/students/:id
 HTTP method: [DELETE]
+
+* Update a Student
+
+Method Url: https://edu-cell.herokuapp.com/students/:id
+HTTP method: [PUT]

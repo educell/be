@@ -52,4 +52,24 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id
+    const changes = req.body
+    db.update(id, changes)
+    .then(id => {
+        if (id === 0) {
+            res.status(404).json({ message: "A student with the specified ID does not exist." }) 
+        } 
+        db
+            .findById(id)
+            .then(changes => {
+                res.status(200).json({ message: "This student was successfully updated." })
+            })
+            
+    })
+    .catch(err => {
+        res.status(500).json({ error: "This student's information could not be modified." })
+    })
+})
+
 module.exports = router;
