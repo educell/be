@@ -10,11 +10,14 @@ https://edu-cell.herokuapp.com
 
 Method Url: https://edu-cell.herokuapp.com/api/auth/register
 HTTP method: [POST]
+    * Requires username and password
 
 * Login:
 
 Method Url: https://edu-cell.herokuapp.com/api/auth/login
 HTTP method: [POST]
+    * Requires username and password
+
 
 # SCHOOL ROUTES 
 
@@ -54,9 +57,50 @@ HTTP method: [GET]
 
 * Add an Admin
 
-Method Url: https://edu-cell.herokuapp.com/admin/
+Method Url: https://edu-cell.herokuapp.com/admin
 HTTP method: [POST]
     *Requires a name and a school_id
+
+
+# WORKER ROUTES
+
+* Get all Workers
+
+Method Url: https://edu-cell.herokuapp.com/worker
+HTTP method: [GET]
+
+* Get Worker by ID
+
+Method Url: https://edu-cell.herokuapp.com/worker/:id
+HTTP method: [GET]
+
+* Add a Worker
+
+Method Url: https://edu-cell.herokuapp.com/worker
+HTTP method: [POST]
+    * Requires a name and an admin_id
+    * notes are optional
+
+
+# TEACHER ROUTES
+
+* Get all Teachers
+
+Method Url: https://edu-cell.herokuapp.com/worker
+HTTP method: [GET]
+
+* Get Teacher by ID
+
+Method Url: https://edu-cell.herokuapp.com/worker/:id
+HTTP method: [GET]
+
+* Add a Teacher
+
+Method Url: https://edu-cell.herokuapp.com/worker
+HTTP method: [POST]
+    * Requires a name and an admin_id
+    * notes are optional
+
 
 # STUDENT ROUTES
 

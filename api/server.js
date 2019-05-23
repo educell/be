@@ -7,6 +7,8 @@ const authRouter = require('../auth/auth-router');
 const studentRouter = require('../students/student-router');
 const schoolRouter = require('../schools/school-router');
 const adminRouter = require('../admin/admin-router');
+const workerRouter = require('../workers/worker-router');
+const teacherRouter = require('../teachers/teacher-router');
 
 const protected = require('../auth/protected_middleware');
 
@@ -21,6 +23,8 @@ server.use('/api/auth', authRouter);
 server.use('/students', studentRouter);
 server.use('/schools', schoolRouter);
 server.use('/admin', adminRouter);
+server.use('/worker', workerRouter);
+server.use('/teacher', teacherRouter);
 
 
 server.get('/', (req, res) => {
