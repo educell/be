@@ -29,21 +29,14 @@ function findById(id) {
     .first();
 };
 
-function update (id, changes) {
-    return db('students')
-        .where({ id })
-        .update(changes)
-        .then(num => {
-            if(num > 0) {
-                return findById(id)
-            } else {
-                return null
-            }
-        })
+function update(id, changes) {
+  return db('students')
+    .where({ id })
+    .update(changes);
 }
-  
+
 function remove(id) {
-    return db('students')
-      .where({ id })
-      .del();
+  return db('students as s')
+    .where('s.id', id)
+    .del();
 }

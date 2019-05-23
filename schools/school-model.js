@@ -4,7 +4,9 @@ module.exports = {
     find,
     findById,
     add,
-    getAdmins
+    getAdmins,
+    update,
+    remove
 }
 
 function find() {
@@ -30,4 +32,16 @@ function getAdmins(schoolId) {
         .join('school as s', 's.id', 'a.school_id')
         .select('a.id', 'a.name', 'school.name')
         .where('a.school_id', schoolId)
+}
+
+function update(id, changes) {
+    return db('school')
+      .where({ id })
+      .update(changes);
+}
+  
+function remove(id) {
+return db('school')
+    .where('id', id)
+    .del();
 }

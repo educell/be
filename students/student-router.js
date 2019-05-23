@@ -36,22 +36,20 @@ router.post('/', (req, res) => {
         })
 })
 
-// router.post('/', (req, res) => {
-//     const { name, age, grade, backgroundStory, insuranceCard, birthCertificate, representative,contactInfo } = req.body;
-
-//     !name
-//     , !age, !grade, !backgroundStory, !insuranceCard, !birthCertificate, !representative, !contactInfo
-//     ?
-//         res.status(400).json({ errorMessage: "Please provide  a name for this student." })
-//     :
-//         db.add(studentInfo)
-//         .then(stu => {
-//             res.status(201).json(stu);
-//         })
-//         .catch( err => {
-//             res.status(500)({ error: "There was an error while saving this student to the database." })
-//     })
-// })
-
+router.delete('/:id', (req, res) => {
+    const stuID = req.params.id;
+    db.remove(stuID)
+    .then(id => {
+        if(id.length === 0){
+            res.status(404).json({ message: "A student with this ID does not exist." })
+        } else {
+            res.status(200).json({ message: "This student was deleted successfully." })
+        }
+        
+    })
+    .catch(err => {
+        res.status(500).json({ error: "This student could not be deleted." })
+    })
+});
 
 module.exports = router;

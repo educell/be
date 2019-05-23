@@ -51,4 +51,22 @@ router.get('/:id/admin', (req, res) => {
     })
 })
 
+
+router.delete('/:id', (req, res) => {
+    const schoolID = req.params.id;
+    db.remove(schoolID)
+    .then(id => {
+        if(id.length === 0){
+            res.status(404).json({ message: "A school with this ID does not exist." })
+        } else {
+            res.status(200).json({ message: "This school was deleted successfully." })
+        }
+        
+    })
+    .catch(err => {
+        res.status(500).json({ error: "The school could not be deleted." })
+    })
+});
+
+
 module.exports = router;

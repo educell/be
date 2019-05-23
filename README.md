@@ -42,6 +42,12 @@ HTTP method: [GET]
 Method Url: https://edu-cell.herokuapp.com/schools/:id/admin
 HTTP method: [GET]
 
+* Delete a School
+
+Method Url: https://edu-cell.herokuapp.com/schools/:id
+HTTP method: [DELETE]
+
+
 
 # ADMIN ROUTES
 
@@ -120,3 +126,8 @@ Method Url: https://edu-cell.herokuapp.com/students
 HTTP method: [POST]
     * Requires a name, age, grade, backgroundStory, status, insuranceCard(boolean), insuranceExpiration, birthCertificate, representative, contactInfo, worker_id, and teacher_id
     * insuranceExpiration, specialNeeds are optional
+    
+* Delete a Student
+
+Method Url: https://edu-cell.herokuapp.com/students/:id
+HTTP method: [DELETE]
