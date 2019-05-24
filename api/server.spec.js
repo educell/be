@@ -13,5 +13,13 @@ describe('Testing Environment', () => {
         .get('/')
         .expect(200);
     });
+    it('should return an object', () => {
+      const expected = {};
+      return request(server)
+        .get('/')
+        .then(res => {
+          expect(res.body).toEqual(expected);
+        });
+    });
   });
 });
