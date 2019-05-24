@@ -4,6 +4,8 @@ module.exports = {
     find,
     findById,
     add,
+    getStudents,
+    remove
 }
 
 function find() {
@@ -23,3 +25,19 @@ function add(worker) {
         return findById(id);
     });
 }
+
+function getStudents(workerId) {
+    return db('students')
+        .select('students.id', 'students.name', 'students.age', 'students.grade', 'students.backgroundStory', 'students.status', 'students.insuranceCard', 'students.insuranceExpiration', 'students.birthCertificate', 'students.specialNeeds', 'students.representative', 'students.contactInfo')
+        // .select('students.id', 'students.name as studentsName', 'admin.name')
+        // .join('admin', 'admin.id', 'students.admin_id')
+        // .where('students.admin_id', workerId)
+}
+
+
+
+function remove(id) {
+    return db('workers')
+        .where('id', id)
+        .del();
+    }

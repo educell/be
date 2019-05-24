@@ -1,26 +1,25 @@
-const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-const Users = require('../users/users-model.js');
+const jwtKey = process.env.JWT_SECRET || 'ngfd56789jhgrnjlbhg';
 
-function protected(req, res, next) {
-  const { username, password } = req.headers;
+module.exports = {
+  authenticate
+};
 
-  if (username && password) {
-    Users.findBy({ username })
-        .first()
-        .then(user => {
-            if (user && bcrypt.compareSync(password, user.password)) {
-             next();
-            } else {
-             res.status(401).json({ message: 'Invalid Credentials' });
-            }
-        })
-        .catch(error => {
-        res.status(500).json(error);
-      });
-    } else {
-     res.status(400).json({ message: 'Please provide credentials' });
-    }
+function authenticate(req, res, next) {
+  const token = req.get('Authorization');
+
+  if (token) {
+    jwt.verify(token, jwtKey, (err, decoded) => {
+      if (err) return res.status(401).json(err);
+
+      req.decoded = decoded;
+
+      next();
+    });
+  } else {
+    return res.status(401).json({
+      error: 'No token provided, must be set on the Authorization Header',
+    });
+  }
 }
-
-module.exports = protected;

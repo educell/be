@@ -1,9 +1,9 @@
 const express = require('express');
 const Users = require('./users-model');
 const router = express.Router();
-const protected = require('../auth/protected_middleware');
+const { authenticate } = require('../auth/protected_middleware');
 
-router.get('/', protected, (req, res) => {
+router.get('/', authenticate, (req, res) => {
     Users.find()
       .then(users => {
         res.status(200).json(users);

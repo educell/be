@@ -28,10 +28,11 @@ function add(school) {
 }
 
 function getAdmins(schoolId) {
-    return db('admin as a')
-        .join('school as s', 's.id', 'a.school_id')
-        .select('a.id', 'a.name', 'school.name')
-        .where('a.school_id', schoolId)
+    return db('admin')
+        // .select()
+        .select('admin.id', 'admin.name as adminName', 'school.name')
+        .join('school', 'school.id', 'admin.school_id')
+        .where('admin.school_id', schoolId)
 }
 
 function update(id, changes) {

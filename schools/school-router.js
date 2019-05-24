@@ -39,11 +39,11 @@ router.post('/', (req, res) => {
 router.get('/:id/admin', (req, res) => {
     const id = req.params.id;
     db.getAdmins(id)
-    .then(school => {
-        if(school === 0) {
+    .then(schoolId => {
+        if(schoolId === 0) {
             res.status(404).json({ message: "Unable to find." })
         } else {
-            res.status(200).json(db)
+            res.status(200).json(schoolId)
         }
     })
     .catch(err => {

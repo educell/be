@@ -36,4 +36,19 @@ router.post('/', (req, res) => {
         })
 })
 
+router.get('/:id/students', (req, res) => {
+    const id = req.params.id;
+    db.getStudents(id)
+    .then(workerId => {
+        if(workerId === 0) {
+            res.status(404).json({ message: "Unable to find." })
+        } else {
+            res.status(200).json(workerId)
+        }
+    })
+    .catch(err => {
+        res.status(500).json({ err: "The students could not be retrieved." })
+    })
+})
+
 module.exports = router;
