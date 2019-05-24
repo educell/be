@@ -1,142 +1,124 @@
 # EDU CELL API
 
+# INSTALLATION
+
+Fork and clone the repository. In the same directory as the package.json, run yarn install in your terminal:
+
+`yarn install`
+
+To start the server, run: 
+
+`yarn server`
+
+To set up testing environment, run:
+
+`yarn test`
+
 
 # API URL:
 https://edu-cell.herokuapp.com
 
 # AUTH ROUTES
 
-* Register a User:
+| Name          | Method        | Endpoint                                         |
+| ------------- |:-------------:| ------------------------------------------------:|
+| Register      | POST          | https://edu-cell.herokuapp.com/api/auth/register |
+| Login         | POST          | https://edu-cell.herokuapp.com/api/auth/login    |
 
-Method Url: https://edu-cell.herokuapp.com/api/auth/register
-HTTP method: [POST]
+* Register a User:
     * Requires username and password
 
 * Login:
-
-Method Url: https://edu-cell.herokuapp.com/api/auth/login
-HTTP method: [POST]
     * Requires username and password
 
 
 # SCHOOL ROUTES 
 
+| Name              | Method        | Endpoint                                          |
+| ----------------- |:-------------:| :------------------------------------------------:|
+| Add a School      | POST          | https://edu-cell.herokuapp.com/schools            |
+| Get Schools       | GET           | https://edu-cell.herokuapp.com/schools            |
+| Get School by ID  | GET           | https://edu-cell.herokuapp.com/schools/:id        |
+| Get Admins        | GET           | https://edu-cell.herokuapp.com/schools/:id/admin  |
+| Delete a School   | DELETE        | https://edu-cell.herokuapp.com/schools/:id        |
+| Update School     | PUT           | https://edu-cell.herokuapp.com/schools/:id        |
+
 * Add a School: 
-
-Method Url: https://edu-cell.herokuapp.com/schools 
-HTTP method: [POST]
-    *Requires a name
-
-* Get all Schools
-
-Methon Url: https://edu-cell.herokuapp.com/schools
-HTTP method: [GET]
-
-* Get a School by ID
-
-Method Url: https://edu-cell.herokuapp.com/schools/:id
-HTTP method: [GET]
-
-* Get Admins from Specific School
-
-Method Url: https://edu-cell.herokuapp.com/schools/:id/admin
-HTTP method: [GET]
-
-* Delete a School
-
-Method Url: https://edu-cell.herokuapp.com/schools/:id
-HTTP method: [DELETE]
-
-* Update a School
-
-Method Url: https://edu-cell.herokuapp.com/schools/:id
-HTTP method: [PUT]
+    * Requires a name
 
 
 # ADMIN ROUTES
 
-* Get all Admins
+| Name              | Method        | Endpoint                                          |
+| ----------------- |:-------------:| :------------------------------------------------:|
+| Add an Admin      | POST          | https://edu-cell.herokuapp.com/admin              |
+| Get Admins        | GET           | https://edu-cell.herokuapp.com/admin              |
+| Get Admin by ID   | GET           | https://edu-cell.herokuapp.com/admin/:id          |
 
-Method Url: https://edu-cell.herokuapp.com/admin
-HTTP method: [GET]
-
-* Get Admin by ID
-
-Method Url: https://edu-cell.herokuapp.com/admin/:id
-HTTP method: [GET]
 
 * Add an Admin
-
-Method Url: https://edu-cell.herokuapp.com/admin
-HTTP method: [POST]
-    *Requires a name and a school_id
+    * Requires:
+        * name 
+        * school_id
 
 
 # WORKER ROUTES
 
-* Get all Workers
+| Name              | Method        | Endpoint                                          |
+| ----------------- |:-------------:| :------------------------------------------------:|
+| Add a Worker      | POST          | https://edu-cell.herokuapp.com/worker             |
+| Get Workers       | GET           | https://edu-cell.herokuapp.com/worker             |
+| Get Worker by ID  | GET           | https://edu-cell.herokuapp.com/worker/:id         |
 
-Method Url: https://edu-cell.herokuapp.com/worker
-HTTP method: [GET]
-
-* Get Worker by ID
-
-Method Url: https://edu-cell.herokuapp.com/worker/:id
-HTTP method: [GET]
 
 * Add a Worker
-
-Method Url: https://edu-cell.herokuapp.com/worker
-HTTP method: [POST]
-    * Requires a name and an admin_id
-    * notes are optional
+    * Requires:
+        * name
+        * admin_id
+    * Optional: 
+        * notes
 
 
 # TEACHER ROUTES
 
-* Get all Teachers
-
-Method Url: https://edu-cell.herokuapp.com/worker
-HTTP method: [GET]
-
-* Get Teacher by ID
-
-Method Url: https://edu-cell.herokuapp.com/worker/:id
-HTTP method: [GET]
+| Name                | Method        | Endpoint                                           |
+| ------------------- |:-------------:| :-------------------------------------------------:|
+| Add a Teacher       | POST          | https://edu-cell.herokuapp.com/teacher             |
+| Get Teachers        | GET           | https://edu-cell.herokuapp.com/teacher             |
+| Get Teacher by ID   | GET           | https://edu-cell.herokuapp.com/teacher/:id         |
 
 * Add a Teacher
-
-Method Url: https://edu-cell.herokuapp.com/worker
-HTTP method: [POST]
-    * Requires a name and an admin_id
-    * notes are optional
+    * Requires:
+        * name
+        * admin_id
+    * Optional:
+        * notes
 
 
 # STUDENT ROUTES
 
-* Get all Students
-
-Method Url: https://edu-cell.herokuapp.com/students
-HTTP method: [GET]
-
-* Get Student By ID
-
-Method Url: https://edu-cell.herokuapp.com/students/:id
-HTTP method: [GET]
+| Name               | Method        | Endpoint                                           |
+| ------------------ |:-------------:| :-------------------------------------------------:|
+| Add a Student      | POST          | https://edu-cell.herokuapp.com/students            |
+| Get Students       | GET           | https://edu-cell.herokuapp.com/students            |
+| Get Student by ID  | GET           | https://edu-cell.herokuapp.com/students/:id        |
+| Delete a Student   | DELETE        | https://edu-cell.herokuapp.com/students/:id        |
+| Update Student     | PUT           | https://edu-cell.herokuapp.com/students/:id        |
 
 * Add a Student
-
-Method Url: https://edu-cell.herokuapp.com/students
-HTTP method: [POST]
-    * Requires a name, age, grade, backgroundStory, status, insuranceCard(boolean), insuranceExpiration, birthCertificate, representative, contactInfo, worker_id, and teacher_id
-    * insuranceExpiration, specialNeeds are optional
-    
-* Delete a Student
-
-Method Url: https://edu-cell.herokuapp.com/students/:id
-HTTP method: [DELETE]
-
-* Update a Student
-
-Method Url: https://edu-cell.herokuapp.com/students/:id
-HTTP method: [PUT]
+    * Requires 
+        * name 
+        * age 
+        * grade
+        * backgroundStory
+        * status
+        * insuranceCard(boolean)
+        * insuranceExpiration
+        * birthCertificate
+        * representative
+        * contactInfo
+        * worker_id
+        * teacher_id
+    * Optional:
+        * insuranceExpiration
+        * specialNeeds 
